@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hook Generator – Saudara Cell &amp; Jago Crypto</title>
+<style>
+:root{--bg:#f6f5f2;--card:#fff;--ink:#16140f;--mute:#6b675d;--line:#e2dfd6;--red:#e10b17;--yellow:#f2e832;--btn:#16140f;--btnink:#fff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14130f;--card:#1f1d18;--ink:#f3f1ea;--mute:#a09b8d;--line:#35322a;--btn:#f3f1ea;--btnink:#14130f}}
+:root[data-theme="dark"]{--bg:#14130f;--card:#1f1d18;--ink:#f3f1ea;--mute:#a09b8d;--line:#35322a;--btn:#f3f1ea;--btnink:#14130f}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.45}
+main{max-width:640px;margin:0 auto;padding:16px}
+h1{font-size:20px;margin:4px 0 12px}
+.tabs{display:flex;gap:8px;margin-bottom:14px}
+.tab{flex:1;padding:11px 8px;border-radius:12px;border:2px solid var(--line);background:var(--card);color:var(--ink);font-weight:700;font-size:14px;cursor:pointer}
+.tab.on[data-t="red"]{background:var(--red);border-color:var(--red);color:#fff}
+.tab.on[data-t="yellow"]{background:var(--yellow);border-color:var(--yellow);color:#16140f}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:14px}
+label{display:block;font-size:13px;font-weight:600;margin-bottom:6px}
+textarea{width:100%;min-height:130px;padding:10px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;font-size:15px;resize:vertical}
+.hint{font-size:12px;color:var(--mute);margin:6px 0 10px}
+.go{width:100%;padding:13px;border:0;border-radius:12px;background:var(--btn);color:var(--btnink);font-weight:700;font-size:15px;cursor:pointer}
+.go:disabled{opacity:.5}
+.err{color:#c0392b;font-size:13px;margin-top:8px}
+.res{margin-bottom:16px}
+.meta{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--mute);margin:0 2px 6px}
+.cp{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:8px;padding:5px 10px;font-size:12px;font-weight:600;cursor:pointer}
+.bx{padding:18px 16px 14px;position:relative}
+.bx.r{background:#e10b17;color:#fff;font-weight:800;text-transform:uppercase;font-family:Arial,Helvetica,sans-serif;font-size:21px;line-height:1.2}
+.bx.y{background:#f2e832;color:#111;font-family:"Poppins",system-ui,sans-serif;font-size:20px;line-height:1.25}
+.bx.y b{font-weight:800}
+.pill{display:inline-block;margin-top:12px;padding:5px 12px;border-radius:99px;background:#111;color:#fff;font-size:10px;font-weight:700;text-transform:uppercase;font-family:Arial,sans-serif;line-height:1.2}
+.pill small{display:block;font-weight:400;font-size:10px}
+.pw{text-align:right}
+.ex{font-size:12px;color:var(--mute)}
+.ex b{color:var(--ink)}
+.tabs{flex-wrap:wrap}.tab{flex:1 1 30%;font-size:12px;padding:10px 6px}.tab.on{background:var(--btn);border-color:var(--btn);color:var(--btnink)}.out2{white-space:pre-wrap;font-size:14px;line-height:1.55}select,input[type=text],input[type=number],input[type=date]{width:100%;padding:9px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;font-size:14px;margin-bottom:8px}#w1,#w2{margin-bottom:4px}.tg{display:grid;grid-template-columns:1fr 1fr;gap:8px}.tg label{font-size:11px;margin-bottom:2px}.tr{font-size:12px;line-height:1.6}.tr b{font-size:14px}
+</style>
+</head>
+<body>
+<main>
+<h1>Hook Generator</h1>
+<div class="tabs">
+<button class="tab on" data-t="red">🔴 Saudara Cell Pusat</button>
+<button class="tab" data-t="yellow">🟡 Jago Crypto</button>
+<button class="tab" data-t="idea">💡 Ide</button><button class="tab" data-t="script">🎬 Script</button><button class="tab" data-t="v2s">📹 Video→Script</button><button class="tab" data-t="funnel">🎯 TOFU-MOFU-BOFU</button><button class="tab" data-t="cal">📅 Kalender</button><button class="tab" data-t="assess">🧭 Assessment</button><button class="tab" data-t="hooks">🪝 Hook Template</button><button class="tab" data-t="prompts">🤖 Prompt</button><button class="tab" data-t="monet">💰 Monetisasi</button><button class="tab" data-t="code">📖 Creator Code</button><button class="tab" data-t="track">📊 Tracker</button>
+</div>
+<div class="card" id="cd">
+<div id="w1" hidden><label for="f1" id="l1"></label><input type="text" id="f1"></div><div id="w2" hidden><label for="f2" id="l2"></label><select id="f2"></select></div><label for="k" id="lab">Kronologi kejadian</label>
+<textarea id="k" placeholder="Tulis kronologi singkat: siapa, mau apa, apa yang terjadi, reaksinya…"></textarea>
+<div class="hint" id="hint"></div>
+<button class="go" id="go">Buat 5 Judul</button>
+<div class="err" id="err"></div>
+</div>
+<div id="out"></div><div id="trk" hidden></div>
+<div class="ex" id="ex"></div>
+</main>
+<script>
+var CFG={
+red:{
+ hint:"Pembuka: Pria ini / Wanita ini / Customer ini / Orang ini. Rumus: [Subjek ini] + [niat/aksi di konter] + [twist: tapi/namun] + [reaksi: bikin …]. Huruf kapital, 10–15 kata.",
+ ex:"<b>Contoh acuan:</b><br>CUSTOMER INI BURU-BURU TRANSFER UANG SENYUM PAMIT BIKIN SUASANA BEGINI<br>PRIA INI INGIN BELI VOUCHER NAMUN SIKAP TENANGNYA BIKIN KAGUM KARENA HAL INI<br>PRIA INI NIAT INGIN TRANSFER TAPI BAWA UANG DI STEPLES BIKIN DIAM SENYUM SOPAN",
+ min:10,max:15,
+ prompt:function(k){return "Kamu penulis judul hook video TikTok untuk konter HP \"Saudara Cell – Konter Digital No. 1\". Tugasmu: ubah kronologi di bawah menjadi 5 judul hook BERBEDA yang 100% mengikuti rumus contoh.\n\nCONTOH ASLI (tiru persis pola kalimat, pembuka, kosakata, ritme, dan jumlah kata):\n1. CUSTOMER INI BURU-BURU TRANSFER UANG SENYUM PAMIT BIKIN SUASANA BEGINI (10 kata)\n2. PRIA INI INGIN BELI VOUCHER NAMUN SIKAP TENANGNYA BIKIN KAGUM KARENA HAL INI (13 kata)\n3. PRIA INI NIAT INGIN TRANSFER TAPI BAWA UANG DI STEPLES BIKIN DIAM SENYUM SOPAN (14 kata)\n\nRUMUS:\n- Buka dengan subjek + \"INI\" dengan HANYA salah satu dari 4 pembuka ini: PRIA INI / WANITA INI / CUSTOMER INI / ORANG INI (pilih yang paling cocok dengan kronologi, dilarang memakai pembuka lain).\n- Lanjut niat/aksi di konter (INGIN BELI, NIAT INGIN TRANSFER, BURU-BURU TRANSFER, dst).\n- Sisipkan twist/keunikan dari kronologi dengan kata sambung TAPI / NAMUN / atau langsung.\n- Tutup dengan reaksi memakai kata BIKIN (BIKIN KAGUM, BIKIN DIAM, BIKIN SUASANA BEGINI, KARENA HAL INI, SENYUM SOPAN, dll).\n- Jangan menyebut nama jelas/merek selain yang ada di kronologi. Jangan bocorkan seluruh kejadian; sisakan rasa penasaran.\n- Semua HURUF KAPITAL. Tanpa tanda baca selain tanda hubung. Tanpa emoji.\n- Jumlah kata tiap judul: 10 sampai 15 kata.\n\nKRONOLOGI:\n"+k+"\n\nBalas HANYA JSON array berisi 5 string judul, tanpa teks lain."}
+},
+yellow:{
+ hint:"Pembuka: Pria ini / Wanita ini / Remaja ini / Anak ini. Rumus: [Subjek ini] [Kehilangan/Rugi …] Di Crypto Karena [pemicu] + bikin + [dampak]. Bagian tebal 10–11 kata, bagian tipis 7–8 kata (total 17–19).",
+ ex:"<b>Contoh acuan:</b><br><b>Pria ini Kehilangan Saldonya Di Crypto Karena Hal Sepele bikin</b> dompet terkuras tanpa ampun perlu hitungan menit",
+ min:17,max:19,
+ prompt:function(k){return "Kamu penulis judul hook postingan untuk akun \"Jago Crypto\". Ubah kronologi di bawah menjadi 5 judul hook BERBEDA yang 100% mengikuti rumus contoh.\n\nCONTOH ASLI (tiru persis pembuka, struktur, ritme, huruf besar-kecil, dan jumlah kata):\nBAGIAN TEBAL (Title Case, 10 kata): \"Pria ini Kehilangan Saldonya Di Crypto Karena Hal Sepele bikin\"\nBAGIAN TIPIS (huruf kecil semua, 7 kata): \"dompet terkuras tanpa ampun perlu hitungan menit\"\nTotal 17 kata.\n\nRUMUS:\n- BAGIAN TEBAL: diawali \"[Subjek] ini\" dengan HANYA salah satu dari 4 pembuka ini: Pria ini / Wanita ini / Remaja ini / Anak ini (pilih yang paling cocok dengan kronologi, dilarang memakai pembuka lain seperti Trader ini), lalu kerugian/peristiwa utama (Kehilangan Saldonya / Kehilangan Asetnya / dst) \"Di Crypto Karena [pemicu singkat dan samar dari kronologi]\", ditutup kata \"bikin\" (huruf kecil) sebagai kata terakhir bagian tebal. Gaya Title Case kecuali kata \"ini\" dan \"bikin\" yang huruf kecil. 10 atau 11 kata.\n- BAGIAN TIPIS: lanjutan setelah \"bikin\", dampak dramatis dalam huruf kecil semua, 7 atau 8 kata (gaya: dompet terkuras tanpa ampun perlu hitungan menit).\n- Pemicu dibuat samar/clickbait (Hal Sepele, Satu Klik Salah, dst) agar penasaran, jangan bocorkan seluruh kejadian. Jangan sebut nama bot/platform/akun.\n- Tanpa emoji, tanpa tanda baca.\n- Total kata 17 sampai 19.\n\nKRONOLOGI:\n"+k+"\n\nBalas HANYA JSON array berisi 5 objek {\"bold\":\"...\",\"normal\":\"...\"}, tanpa teks lain."}
+}};
+var PF='Kamu konsultan konten kreator Indonesia. Jawab bahasa Indonesia, praktis, siap pakai, tanpa kalimat pembuka/penutup. Judul bagian pakai **tebal**; jangan pakai # atau tabel markdown. ';var NI=['Kuliner','Fashion','Kecantikan','Kesehatan & Fitness','Parenting','Keuangan & Investasi','Properti','Teknologi & Gadget','Edukasi','Travel','Otomotif','Gaming','Bisnis & UMKM','Karier','Hobi & Craft','Hewan Peliharaan','Spiritual & Religi','Hiburan'];var PL=['TikTok','Instagram Reels','YouTube Shorts'];
+var G={
+idea:{g:1,hint:'Anti stuck: 10 ide konten sesuai niche.',ex:'',lab:'Topik / konteks (opsional)',ph:'Produk, kejadian terbaru, atau masalah audiens',f1:'Niche / bisnis kamu',ol:'Platform',o:PL,p:function(k,a,b){return PF+'Buat 10 ide konten untuk niche: '+a+'. Platform: '+b+'. Konteks: '+(k||'-')+'. Tiap ide: **judul**, angle unik, hook 1 kalimat, format visual.'}},
+script:{g:1,rk:1,hint:'Script lengkap: Hook, Isi, CTA.',ex:'',lab:'Topik video',ph:'Apa yang mau dibahas / dijual?',f1:'Niche (opsional)',ol:'Durasi',o:['30 detik','60 detik','90 detik'],p:function(k,a,b){return PF+'Tulis script video '+b+' tentang: '+k+'. Niche: '+(a||'umum')+'. Struktur: **HOOK** (3 opsi, 3 detik pertama), **ISI** (poin per adegan + arahan visual singkat), **CTA** (2 opsi).'}},
+v2s:{g:1,rk:1,hint:'Tempel teks transkrip/caption video viral (belum bisa membaca file video atau link).',ex:'',lab:'Transkrip / caption video viral',ph:'Tempel teks dari video viral di sini',f1:'Niche kamu',ol:'Platform tujuan',o:PL,p:function(k,a,b){return PF+'Ini transkrip video viral:\n'+k+'\n\nAnalisis singkat: struktur hook, alur, pemicu emosi, CTA. Lalu tulis ulang script ORISINAL (bukan menyalin) untuk niche '+(a||'umum')+', '+b+', sekitar 60 detik, dengan pola yang sama.'}},
+funnel:{g:1,hint:'Strategi konten 3 tahap.',ex:'',lab:'Target audiens & detail produk (opsional)',ph:'Siapa target kamu, apa yang dijual',f1:'Niche / produk',ol:'Tujuan',o:['Jualan produk','Tambah followers','Kumpulkan leads'],p:function(k,a,b){return PF+'Susun strategi TOFU-MOFU-BOFU untuk '+a+'. Tujuan: '+b+'. Detail: '+(k||'-')+'. Tiap tahap: tujuan, 5 ide konten, format terbaik, CTA, metrik. Tutup dengan rasio konten per minggu.'}},
+cal:{g:1,hint:'Kalender konten per 30 hari (total 90 hari).',ex:'',lab:'Produk / tujuan / pilar konten (opsional)',ph:'Mis. pilar: edukasi, promo, testimoni',f1:'Niche / bisnis',ol:'Periode',o:['Hari 1-30','Hari 31-60','Hari 61-90'],p:function(k,a,b){return PF+'Buat kalender konten '+b+' untuk '+a+'. Info: '+(k||'-')+'. Satu baris per hari: Hari | Tahap (TOFU/MOFU/BOFU) | Topik | Format | Hook singkat | CTA. Sertakan 1-2 hari istirahat per minggu (anti-burnout).'}},
+assess:{g:1,rk:1,hint:'Assessment 12 langkah lalu Master Blueprint.',ex:'',lab:'Ceritakan bisnis / akun kamu',ph:'Niche, target audiens, produk, platform, tujuan, hambatan',p:function(k){return PF+'Jalankan Assessment 12 Langkah berdasarkan data ini: '+k+'\nLangkah: 1 Niche & positioning, 2 Target audiens, 3 Masalah audiens, 4 Value proposition, 5 Produk & monetisasi, 6 Pilar konten, 7 Platform, 8 Gaya & tone, 9 Format konten, 10 Frekuensi posting, 11 Funnel, 12 Metrik. Isi tiap langkah, tulis [PERLU DIISI] bila data kurang. Akhiri dengan **MASTER BLUEPRINT** ringkas satu halaman.'}},
+hooks:{g:1,n:1,hint:'9 kategori x 17 template = 153 hook siap copy.',ex:'',lab:'Catatan tambahan (opsional)',ph:'Mis. gaya bahasa atau produk',f1:'Niche (opsional)',ol:'Kategori hook',o:['Curiosity','Kontroversi','Cerita','Angka & Data','Pertanyaan','Kesalahan & Peringatan','Before-After','Tutorial','Social Proof'],p:function(k,a,b){return PF+'Buat 17 template hook kategori '+b+', niche '+(a||'umum')+'. Pakai [variabel] dalam kurung siku agar tinggal isi. '+k+' Format bernomor.'}},
+prompts:{g:1,n:1,hint:'5 kategori x 10 prompt = 50 prompt.',ex:'',lab:'Catatan tambahan (opsional)',ph:'Mis. niche atau gaya bahasa',ol:'Kategori prompt',o:['Ide konten','Script','Caption','Hook','Repurpose'],p:function(k,a,b){return PF+'Buat 10 prompt AI siap pakai untuk kreator, kategori '+b+'. Prompt harus membuat output AI terasa ditulis manusia (santai, spesifik, tanpa klise AI). Pakai [variabel]. Tiap prompt 2-4 kalimat. '+k}},
+monet:{g:1,n:1,hint:'18 niche, tiap niche 10 ide monetisasi.',ex:'',lab:'Catatan tambahan (opsional)',ph:'Mis. modal, skill, jumlah followers',ol:'Niche',o:NI,p:function(k,a,b){return PF+'Berikan 10 ide monetisasi untuk niche '+b+'. Tiap ide: model, estimasi modal, 3 langkah mulai, potensi kisaran (jujur, jangan menjanjikan hasil pasti). '+k}},
+code:{g:1,n:1,hint:'7 kategori x 20 istilah = 140 istilah.',ex:'',lab:'Catatan tambahan (opsional)',ph:'Mis. level pemula',ol:'Kategori',o:['Algoritma','Format Konten','Metrik','Monetisasi','Editing','Strategi','Komunitas'],p:function(k,a,b){return PF+'Tulis kamus 20 istilah dunia kreator konten kategori '+b+'. Format: **Istilah** - arti 1 kalimat, contoh pemakaian. '+k}},
+track:{hint:'',ex:''}};
+for(var q in G)CFG[q]=G[q];
+async function runG(btn){var g=CFG[cur],e=$('err'),k=$('k').value.trim(),a=$('f1').value.trim(),b=$('f2').value;e.textContent='';if((g.rk&&k.length<5)||(!g.n&&!g.rk&&!a&&!k)){e.textContent='Isi dulu ya.';return}btn.disabled=true;btn.textContent='Membuat…';var d=document.createElement('div'),txt='';d.className='card out2';d.textContent='Memproses…';$('out').innerHTML='';$('out').appendChild(d);try{if(!sample)sample=await claude.use('sample');if(!sample)throw{message:'Fitur AI belum tersedia di tampilan ini.'};await sample(g.p(k,a,b),{cache:false,onText:function(x){txt=x.text;d.innerHTML=esc(txt).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>')}});var cb=document.createElement('button');cb.className='cp';cb.textContent='Salin';cb.onclick=function(){copy(txt,cb)};$('out').appendChild(cb)}catch(x){d.remove();e.textContent=(x&&x.code==='rate_limited')?'Terlalu cepat, tunggu sebentar.':(x&&x.message)||'Gagal, coba lagi.'}btn.disabled=false;btn.textContent='Buat'}
+var TF=[['d','Tanggal','date'],['pl','Platform','text'],['jd','Judul','text'],['du','Durasi (dtk)','number'],['v','Views','number'],['l','Likes','number'],['c','Komentar','number'],['s','Share','number'],['sv','Save','number'],['f','Follower baru','number'],['w','Avg watch (%)','number']];
+var rows=[];try{rows=JSON.parse(localStorage.getItem('trk')||'[]')}catch(e){}
+function pc(a,b){return b>0?(a/b*100).toFixed(2)+'%':'–'}
+function addT(){var r={};TF.forEach(function(f){r[f[0]]=$('t_'+f[0]).value;$('t_'+f[0]).value=''});if(!r.jd&&!r.v)return;rows.unshift(r);try{localStorage.setItem('trk',JSON.stringify(rows))}catch(e){}drawT()}
+function drawT(){var t=$('trk');if(!t.dataset.b){t.dataset.b=1;t.innerHTML='<div class="card"><div class="tg">'+TF.map(function(f){return '<div><label>'+f[1]+'</label><input id="t_'+f[0]+'" type="'+f[2]+'"></div>'}).join('')+'</div><div class="hint">11 data diisi + 7 dihitung otomatis: ER, like, komen, share, save, konversi follower, durasi tonton. Data tersimpan di browser ini.</div><button class="go" id="ta">Tambah data</button></div><div id="tl"></div>';$('ta').onclick=addT;$('tl').onclick=function(e){var i=e.target.dataset.i;if(i!=null){rows.splice(i,1);try{localStorage.setItem('trk',JSON.stringify(rows))}catch(x){}drawT()}}}$('tl').innerHTML=rows.map(function(r,i){var v=+r.v;return '<div class="card tr"><b>'+esc(r.jd||'(tanpa judul)')+'</b><br>'+esc(r.d||'')+' · '+esc(r.pl||'')+' · '+(r.du||0)+' dtk · '+(r.v||0)+' views<br>ER '+pc(+r.l+ +r.c+ +r.s+ +r.sv,v)+' · Like '+pc(+r.l,v)+' · Komen '+pc(+r.c,v)+' · Share '+pc(+r.s,v)+' · Save '+pc(+r.sv,v)+' · Follow '+pc(+r.f,v)+' · Tonton '+((r.du*r.w/100)||0).toFixed(1)+' dtk<br><button class="cp" data-i="'+i+'">Hapus</button></div>'}).join('')||'<div class="ex">Belum ada data.</div>'}
+var cur="red",sample=null;
+var $=function(i){return document.getElementById(i)};
+function wc(s){return s.trim().split(/\s+/).filter(Boolean).length}
+function setTab(t){cur=t;var c=CFG[t],g=c.g?c:null;$('cd').hidden=t==='track';$('trk').hidden=t!=='track';$('w1').hidden=!(g&&g.f1);$('w2').hidden=!(g&&g.o);$('lab').textContent=g?g.lab:'Kronologi kejadian';$('k').placeholder=g?g.ph:'Tulis kronologi singkat: siapa, mau apa, apa yang terjadi, reaksinya…';$('go').textContent=g?'Buat':'Buat 5 Judul';if(g&&g.f1){$('l1').textContent=g.f1}if(g&&g.o){$('l2').textContent=g.ol;$('f2').innerHTML=g.o.map(function(x){return '<option>'+x+'</option>'}).join('')}if(t==='track')drawT();
+ document.querySelectorAll(".tab").forEach(function(b){b.classList.toggle("on",b.dataset.t===t)});
+ $("hint").textContent=CFG[t].hint;$("ex").innerHTML=CFG[t].ex;$("out").innerHTML="";$("err").textContent="";}
+document.querySelectorAll(".tab").forEach(function(b){b.onclick=function(){setTab(b.dataset.t)}});
+setTab("red");
+function copy(txt,btn){
+ var done=function(){btn.textContent="Tersalin ✓";setTimeout(function(){btn.textContent="Salin"},1500)};
+ try{navigator.clipboard.writeText(txt).then(done,fb)}catch(e){fb()}
+ function fb(){var a=document.createElement("textarea");a.value=txt;document.body.appendChild(a);a.select();try{document.execCommand("copy");done()}catch(e){}a.remove()}
+}
+function esc(s){return s.replace(/[&<>]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;"}[c]})}
+function render(items){
+ var c=CFG[cur],o=$("out");o.innerHTML="";
+ items.forEach(function(it,i){
+  var full,html,pill;
+  if(cur==="red"){full=String(it).toUpperCase().replace(/[.,!?]/g,"").trim();html=esc(full);
+   pill='<div class="pw"><span class="pill"><span>Saudara Cell</span><small>Konter Digital No. 1</small></span></div>';}
+  else{var b=String(it.bold).trim(),n=String(it.normal).trim().toLowerCase();full=b+" "+n;html="<b>"+esc(b)+"</b> "+esc(n);
+   pill='<div class="pw"><span class="pill"><span>Jago</span><small>Crypto</small></span></div>';}
+  var n2=wc(full),ok=n2>=c.min&&n2<=c.max;
+  var d=document.createElement("div");d.className="res";
+  d.innerHTML='<div class="meta"><span>Opsi '+(i+1)+' · '+n2+' kata'+(ok?'':' ⚠ di luar target')+'</span><button class="cp">Salin</button></div><div class="bx '+(cur==="red"?"r":"y")+'">'+html+pill+'</div>';
+  d.querySelector(".cp").onclick=function(){copy(full,this)};
+  o.appendChild(d);
+ });
+}
+$("go").onclick=async function(){if(CFG[cur].g)return runG(this);
+ var k=$("k").value.trim(),btn=this,e=$("err");e.textContent="";
+ if(k.length<10){e.textContent="Isi kronologi dulu ya.";return}
+ btn.disabled=true;btn.textContent="Membuat judul…";
+ try{
+  if(!sample){sample=await claude.use("sample")}
+  if(!sample){throw {message:"Fitur AI belum tersedia di tampilan ini."}}
+  var r=await sample.json(CFG[cur].prompt(k),{cache:false});
+  if(!Array.isArray(r))throw {message:"Format hasil tidak sesuai, coba lagi."};
+  render(r.slice(0,5));
+ }catch(x){e.textContent=(x&&x.code==="rate_limited")?"Terlalu cepat, tunggu sebentar lalu coba lagi.":(x&&x.message)||"Gagal membuat judul, coba lagi."}
+ btn.disabled=false;btn.textContent="Buat 5 Judul";
+};
+</script>
+</body>
+</html>
